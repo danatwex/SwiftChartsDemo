@@ -7,19 +7,29 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-    }
+extension StockChartData: Identifiable {
+    public var id: UUID { UUID() }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct ContentView: View {
+
+    var body: some View {
+        NavigationView {
+            ZStack(alignment: .topLeading) {
+                Color(hex: "F3F6F8")
+                VStack(alignment: .leading) {
+                    Text("WEX")
+                        .font(.headline).fontWeight(.medium)
+                        .foregroundColor(Color(hex: "253746").opacity(0.5))
+                    Text("WEX Inc.")
+                        .font(.largeTitle)
+                        .foregroundColor(Color(hex: "253746"))
+                        .bold()
+                    ChartCardView()
+                }
+                .padding(.all)
+            }
+            .navigationTitle("Charts Demo")
+        }
     }
 }
