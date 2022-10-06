@@ -11,6 +11,9 @@ import Charts
 
 struct ChartView: View {
 
+    @State var location: CGPoint? = nil
+//    @State var selection: (Date, Double)? = nil
+
     var data: [StockChartData]
 
     var body: some View {
@@ -27,6 +30,29 @@ struct ChartView: View {
                          y: .value("Close", $0.close ?? 0))
                 .foregroundStyle(Gradient(colors: [trendColor.opacity(0.2), trendColor.opacity(0.075), .white, .white]))
             }
+            .chartOverlay { proxy in
+                // https://developer.apple.com/documentation/charts/chartproxy
+                GeometryReader { geometry in
+                    ZStack {
+                        Rectangle().fill(.clear).contentShape(Rectangle())
+                            .gesture(DragGesture()
+                                .onChanged { value in
+                                    let origin = geometry[proxy.plotAreaFrame].origin
+                                    location = CGPoint(
+                                        x: value.location.x - origin.x,
+                                        y: value.location.y - origin.y
+                                    )
+//                                    selection = proxy.value(at: location, as: (Date, Double).self)!
+                                }
+                                .onEnded { _ in location = nil }
+                            )
+                        if let location = location {
+                            let value = proxy.value(at: location, as: (Date, Double).self)!
+                            SelectionView(value: value.1).position(location).offset(x: 30, y: -20)
+                        }
+                    }
+                }
+            }
             .frame(height: 85)
             .chartXAxis(SwiftUI.Visibility.hidden)
             .chartYAxis(SwiftUI.Visibility.hidden)
@@ -39,6 +65,9 @@ struct ChartView: View {
                 .offset(y: -15)
         }
 
+    }
+
+    func updateSelectedValue(at location: CGPoint, proxy: ChartProxy, geometry: GeometryProxy) {
     }
 }
 
@@ -59,9 +88,9 @@ struct ChartView_Previews: PreviewProvider {
 
 func makeMockData() -> [StockChartData] {
     var mockData = [StockChartData]()
-    for i in 1...20 {
+    for i in 1...80 {
         let date = Date(timeIntervalSinceNow: TimeInterval(-i * 24 * 60 * 60))
-        let value = Float.random(in: 100...200)
+        let value = i > 20 ? 0.0 : Float.random(in: 100...200)
         mockData.append(StockChartData(date: date, close: value))
     }
     return mockData

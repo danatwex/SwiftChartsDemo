@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71404C8B28EF16E900AE565D /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71404C8A28EF16E900AE565D /* SelectionView.swift */; };
 		714598D62860CDC0004F4DB2 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714598D52860CDC0004F4DB2 /* Color+.swift */; };
 		714598D82860D596004F4DB2 /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714598D72860D596004F4DB2 /* TrendView.swift */; };
 		714598DA2860D70D004F4DB2 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714598D92860D70D004F4DB2 /* ChartView.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71404C8A28EF16E900AE565D /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		714598D52860CDC0004F4DB2 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		714598D72860D596004F4DB2 /* TrendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		714598D92860D70D004F4DB2 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				715893A728590C8800A91FB3 /* ChartsDemoApp.swift */,
 				715893A928590C8800A91FB3 /* ContentView.swift */,
 				714598D72860D596004F4DB2 /* TrendView.swift */,
+				71404C8A28EF16E900AE565D /* SelectionView.swift */,
 				714598D92860D70D004F4DB2 /* ChartView.swift */,
 				714598DB2860EC7E004F4DB2 /* ChartCardView.swift */,
 				714598D52860CDC0004F4DB2 /* Color+.swift */,
@@ -293,6 +296,7 @@
 				715893EC285A200F00A91FB3 /* URLGenerationError.swift in Sources */,
 				715893EA285A200F00A91FB3 /* SummaryProfile.swift in Sources */,
 				715893E4285A200F00A91FB3 /* RecommendationTrend.swift in Sources */,
+				71404C8B28EF16E900AE565D /* SelectionView.swift in Sources */,
 				715893EE285A200F00A91FB3 /* RequestError.swift in Sources */,
 				715893DC285A200F00A91FB3 /* StringSearch.swift in Sources */,
 				715893DD285A200F00A91FB3 /* QuoteSummarySelection.swift in Sources */,
